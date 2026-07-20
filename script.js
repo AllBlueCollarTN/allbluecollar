@@ -1,8 +1,1 @@
-document.getElementById("year").textContent=new Date().getFullYear();const m=document.getElementById("menu"),n=document.getElementById("nav");m.addEventListener("click",()=>n.classList.toggle("open"));document.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>n.classList.remove("open")));document.getElementById("form").addEventListener("submit",e=>{e.preventDefault();const d=new FormData(e.target);const subject=encodeURIComponent("Estimate request - "+d.get("service"));const body=encodeURIComponent(`Name: ${d.get("name")}
-Phone: ${d.get("phone")}
-Service: ${d.get("service")}
-
-Project details:
-${d.get("details")}
-
-Please call me about an estimate.`);location.href=`mailto:?subject=${subject}&body=${body}`;});
+const menu=document.getElementById('menu');const nav=document.getElementById('nav');menu?.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();document.getElementById('form')?.addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.currentTarget);const subject=encodeURIComponent('Free estimate request - '+f.get('service'));const body=encodeURIComponent(`Name: ${f.get('name')}\nPhone: ${f.get('phone')}\nEmail: ${f.get('email')||''}\nService: ${f.get('service')}\n\nProject details:\n${f.get('details')}`);location.href=`mailto:info@allbluecollar.com?subject=${subject}&body=${body}`;});
